@@ -3,415 +3,750 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>H2 Premium — Magnesium Hydrogen Wellness</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>H2 Premium</title>
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
     }
 
-    body {
-      font-family: Arial, sans-serif;
-      background: #030712;
-      color: #ffffff;
-      overflow-x: hidden;
+    body{
+      font-family:Arial,sans-serif;
+      background:#030712;
+      color:white;
+      overflow-x:hidden;
     }
 
-    .page {
-      position: relative;
-      min-height: 100vh;
+    .page{
+      min-height:100vh;
+
       background:
-        radial-gradient(circle at 50% 20%, rgba(0, 132, 255, 0.35), transparent 35%),
-        radial-gradient(circle at 80% 80%, rgba(0, 255, 255, 0.12), transparent 30%),
-        #030712;
+      radial-gradient(circle at 75% 20%,
+      rgba(56,189,248,0.25),
+      transparent 35%),
+
+      radial-gradient(circle at 20% 80%,
+      rgba(37,99,235,0.18),
+      transparent 35%),
+
+      #030712;
     }
 
-    .bubble {
-      position: fixed;
-      bottom: -100px;
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      background: rgba(125, 211, 252, 0.45);
-      animation: rise 12s infinite ease-in;
-      z-index: 0;
+    header{
+      min-height:100vh;
+
+      display:grid;
+      grid-template-columns:1.1fr 0.9fr;
+
+      align-items:center;
+      gap:50px;
+
+      max-width:1200px;
+      margin:auto;
+
+      padding:50px 20px;
     }
 
-    .bubble:nth-child(1) { left: 10%; animation-delay: 0s; }
-    .bubble:nth-child(2) { left: 25%; animation-delay: 3s; width: 9px; height: 9px; }
-    .bubble:nth-child(3) { left: 45%; animation-delay: 6s; width: 18px; height: 18px; }
-    .bubble:nth-child(4) { left: 70%; animation-delay: 2s; width: 11px; height: 11px; }
-    .bubble:nth-child(5) { left: 88%; animation-delay: 5s; width: 15px; height: 15px; }
+    .label{
+      display:inline-block;
 
-    @keyframes rise {
-      0% {
-        transform: translateY(0) scale(1);
-        opacity: 0;
-      }
-      15% {
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(-120vh) scale(1.8);
-        opacity: 0;
-      }
+      padding:10px 18px;
+
+      border-radius:999px;
+
+      background:rgba(255,255,255,0.08);
+
+      border:1px solid rgba(255,255,255,0.15);
+
+      color:#bae6fd;
+
+      font-size:13px;
+
+      letter-spacing:2px;
+
+      text-transform:uppercase;
+
+      margin-bottom:25px;
     }
 
-    header {
-      position: relative;
-      z-index: 1;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 40px 20px;
-      text-align: center;
+    h1{
+      font-size:clamp(56px,9vw,110px);
+
+      line-height:0.95;
+
+      letter-spacing:-4px;
+
+      margin-bottom:25px;
     }
 
-    .hero {
-      max-width: 950px;
+    .hero-text{
+      font-size:clamp(20px,3vw,29px);
+
+      color:#dbeafe;
+
+      line-height:1.4;
+
+      margin-bottom:35px;
+
+      max-width:700px;
     }
 
-    .label {
-      display: inline-block;
-      padding: 10px 18px;
-      border: 1px solid rgba(255,255,255,0.18);
-      border-radius: 999px;
-      color: #bae6fd;
-      background: rgba(255,255,255,0.06);
-      backdrop-filter: blur(15px);
-      margin-bottom: 25px;
-      font-size: 14px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
+    .buttons{
+      display:flex;
+
+      gap:15px;
+
+      flex-wrap:wrap;
     }
 
-    h1 {
-      font-size: clamp(56px, 10vw, 120px);
-      letter-spacing: -4px;
-      line-height: 0.95;
-      margin-bottom: 24px;
+    .btn{
+      display:inline-block;
+
+      padding:16px 30px;
+
+      border-radius:999px;
+
+      text-decoration:none;
+
+      font-weight:700;
+
+      transition:0.3s ease;
     }
 
-    .hero p {
-      font-size: clamp(20px, 3vw, 30px);
-      color: #dbeafe;
-      max-width: 800px;
-      margin: 0 auto 36px;
-      line-height: 1.4;
-    }
-
-    .buttons {
-      display: flex;
-      justify-content: center;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 16px 30px;
-      border-radius: 999px;
-      text-decoration: none;
-      font-weight: 700;
-      transition: 0.3s ease;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, #38bdf8, #2563eb);
-      color: white;
-      box-shadow: 0 20px 50px rgba(37, 99, 235, 0.35);
-    }
-
-    .btn-secondary {
-      color: white;
-      border: 1px solid rgba(255,255,255,0.2);
-      background: rgba(255,255,255,0.06);
-    }
-
-    .btn:hover {
-      transform: translateY(-3px);
-    }
-
-    section {
-      position: relative;
-      z-index: 1;
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 90px 20px;
-    }
-
-    h2 {
-      font-size: clamp(36px, 6vw, 66px);
-      line-height: 1;
-      text-align: center;
-      margin-bottom: 24px;
-      letter-spacing: -2px;
-    }
-
-    .section-text {
-      max-width: 760px;
-      margin: 0 auto 50px;
-      text-align: center;
-      color: #cbd5e1;
-      font-size: 20px;
-      line-height: 1.6;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 22px;
-    }
-
-    .card {
-      padding: 30px;
-      min-height: 220px;
-      border-radius: 28px;
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.12);
-      backdrop-filter: blur(18px);
-      box-shadow: 0 30px 90px rgba(0,0,0,0.25);
-      transition: 0.3s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-8px);
-      background: rgba(255,255,255,0.11);
-    }
-
-    .card span {
-      display: block;
-      font-size: 34px;
-      margin-bottom: 24px;
-    }
-
-    .card h3 {
-      font-size: 24px;
-      margin-bottom: 14px;
-      color: #e0f2fe;
-    }
-
-    .card p {
-      color: #cbd5e1;
-      font-size: 17px;
-      line-height: 1.6;
-    }
-
-    .ritual {
-      margin-top: 40px;
-      padding: 70px 30px;
-      border-radius: 36px;
+    .btn-primary{
       background:
-        linear-gradient(135deg, rgba(56,189,248,0.18), rgba(15,23,42,0.95)),
-        rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.14);
-      text-align: center;
-      overflow: hidden;
+      linear-gradient(135deg,#38bdf8,#2563eb);
+
+      color:white;
+
+      box-shadow:
+      0 20px 50px rgba(37,99,235,0.35);
     }
 
-    .ritual h2 {
-      margin-bottom: 25px;
+    .btn-secondary{
+      color:white;
+
+      border:1px solid rgba(255,255,255,0.22);
+
+      background:rgba(255,255,255,0.07);
     }
 
-    .ritual p {
-      font-size: clamp(24px, 4vw, 42px);
-      max-width: 850px;
-      margin: auto;
-      line-height: 1.25;
-      color: #f8fafc;
+    .btn:hover{
+      transform:translateY(-3px);
     }
 
-    .final {
-      text-align: center;
-      padding-bottom: 120px;
+    .video-card{
+
+      position:relative;
+
+      overflow:hidden;
+
+      border-radius:40px;
+
+      background:rgba(255,255,255,0.06);
+
+      border:1px solid rgba(255,255,255,0.12);
+
+      backdrop-filter:blur(20px);
+
+      box-shadow:
+      0 40px 120px rgba(0,0,0,0.45);
+
+      min-height:520px;
     }
 
-    .final-box {
-      padding: 70px 25px;
-      border-radius: 40px;
+    .hero-video{
+      width:100%;
+
+      height:520px;
+
+      object-fit:cover;
+
+      display:block;
+    }
+
+    .video-overlay{
+
+      position:absolute;
+
+      inset:0;
+
       background:
-        radial-gradient(circle at top, rgba(56,189,248,0.35), transparent 45%),
-        rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.14);
-      backdrop-filter: blur(20px);
+
+      radial-gradient(
+      circle at center,
+      transparent 35%,
+      rgba(3,7,18,0.45) 100%
+      ),
+
+      linear-gradient(
+      to top,
+      rgba(3,7,18,0.75),
+      transparent 55%
+      );
     }
 
-    footer {
-      position: relative;
-      z-index: 1;
-      padding: 30px 20px;
-      text-align: center;
-      color: #64748b;
-      font-size: 14px;
+    .video-badge{
+
+      position:absolute;
+
+      left:24px;
+
+      bottom:24px;
+
+      padding:12px 18px;
+
+      border-radius:999px;
+
+      background:rgba(255,255,255,0.12);
+
+      border:1px solid rgba(255,255,255,0.18);
+
+      backdrop-filter:blur(16px);
+
+      color:#e0f2fe;
+
+      font-size:13px;
+
+      letter-spacing:1.5px;
+
+      text-transform:uppercase;
     }
 
-    @media (max-width: 700px) {
-      h1 {
-        letter-spacing: -2px;
-      }
+    section{
+      max-width:1180px;
 
-      section {
-        padding: 65px 18px;
-      }
+      margin:auto;
 
-      .card {
-        min-height: auto;
-      }
+      padding:90px 20px;
     }
+
+    h2{
+      font-size:clamp(36px,6vw,64px);
+
+      text-align:center;
+
+      line-height:1;
+
+      letter-spacing:-2px;
+
+      margin-bottom:24px;
+    }
+
+    .section-text{
+      max-width:780px;
+
+      margin:0 auto 50px;
+
+      text-align:center;
+
+      color:#cbd5e1;
+
+      font-size:20px;
+
+      line-height:1.6;
+    }
+
+    .cards{
+      display:grid;
+
+      grid-template-columns:
+      repeat(auto-fit,minmax(240px,1fr));
+
+      gap:22px;
+    }
+
+    .card{
+      padding:30px;
+
+      min-height:220px;
+
+      border-radius:28px;
+
+      background:rgba(255,255,255,0.07);
+
+      border:1px solid rgba(255,255,255,0.12);
+
+      backdrop-filter:blur(18px);
+
+      transition:0.3s ease;
+    }
+
+    .card:hover{
+      transform:translateY(-8px);
+
+      background:rgba(255,255,255,0.11);
+    }
+
+    .card span{
+      display:block;
+
+      font-size:34px;
+
+      margin-bottom:24px;
+
+      color:#7dd3fc;
+    }
+
+    .card h3{
+      font-size:24px;
+
+      margin-bottom:14px;
+
+      color:#e0f2fe;
+    }
+
+    .card p{
+      color:#cbd5e1;
+
+      font-size:17px;
+
+      line-height:1.6;
+    }
+
+    .ritual{
+      margin-top:45px;
+
+      padding:70px 30px;
+
+      border-radius:36px;
+
+      background:
+      linear-gradient(
+      135deg,
+      rgba(56,189,248,0.18),
+      rgba(15,23,42,0.96)
+      );
+
+      border:1px solid rgba(255,255,255,0.14);
+
+      text-align:center;
+    }
+
+    .ritual p{
+      font-size:clamp(24px,4vw,40px);
+
+      max-width:850px;
+
+      margin:auto;
+
+      line-height:1.25;
+    }
+
+    .final{
+      text-align:center;
+
+      padding-bottom:120px;
+    }
+
+    .final-box{
+      padding:70px 25px;
+
+      border-radius:40px;
+
+      background:
+
+      radial-gradient(
+      circle at top,
+      rgba(56,189,248,0.35),
+      transparent 45%
+      ),
+
+      rgba(255,255,255,0.07);
+
+      border:1px solid rgba(255,255,255,0.14);
+
+      backdrop-filter:blur(20px);
+    }
+
+    footer{
+      padding:30px 20px;
+
+      text-align:center;
+
+      color:#64748b;
+
+      font-size:14px;
+    }
+
+    @media(max-width:850px){
+
+      header{
+        grid-template-columns:1fr;
+
+        text-align:center;
+
+        padding-top:70px;
+      }
+
+      .buttons{
+        justify-content:center;
+      }
+
+      h1{
+        letter-spacing:-2px;
+      }
+
+      .video-card{
+        max-width:430px;
+
+        margin:auto;
+      }
+
+    }
+
   </style>
 </head>
 
 <body>
 
-  <div class="page">
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
+<div class="page">
 
-    <header>
-      <div class="hero">
-        <div class="label">Magnesium Hydrogen Wellness</div>
+<header>
 
-        <h1>H2 Premium</h1>
+  <div>
 
-        <p>
-          Магний + активный водород для энергии, восстановления
-          и ежедневного баланса в современном ритме жизни.
-        </p>
+    <div class="label">
+      Premium nutraceutical support
+    </div>
 
-        <div class="buttons">
-          <a class="btn btn-primary" href="https://t.me/auto_importKZ" target="_blank">Получить консультацию</a>
-          <a class="btn btn-secondary" href="#about">Узнать больше</a>
-        </div>
-      </div>
-    </header>
+    <h1>H2 Premium</h1>
 
-    <section id="about">
-      <h2>Вода нового уровня</h2>
+    <p class="hero-text">
+      БАД в капсулах с магнием
+      и водородной поддержкой
+      для энергии, восстановления
+      и ежедневного баланса.
+    </p>
 
-      <p class="section-text">
-        H2 Premium — это современный wellness-продукт для тех,
-        кто хочет поддерживать энергию, восстановление и баланс каждый день.
-      </p>
+    <div class="buttons">
 
-      <div class="cards">
-        <div class="card">
-          <span>H₂</span>
-          <h3>Активный водород</h3>
-          <p>Современный подход к ежедневной поддержке организма и внутреннего баланса.</p>
-        </div>
+      <a
+      class="btn btn-primary"
+      href="https://t.me/auto_importKZ"
+      target="_blank">
 
-        <div class="card">
-          <span>Mg</span>
-          <h3>Магний</h3>
-          <p>Поддержка нервной системы, восстановления и активного образа жизни.</p>
-        </div>
+      Получить консультацию
 
-        <div class="card">
-          <span>⚡</span>
-          <h3>Энергия</h3>
-          <p>Для людей, которые много работают, двигаются и хотят чувствовать больше ресурса.</p>
-        </div>
+      </a>
 
-        <div class="card">
-          <span>◌</span>
-          <h3>Баланс</h3>
-          <p>Ежедневный ритуал заботы о себе без лишней сложности.</p>
-        </div>
-      </div>
-    </section>
+      <a
+      class="btn btn-secondary"
+      href="#about">
 
-    <section>
-      <h2>Для кого создан H2 Premium</h2>
+      Узнать подробнее
 
-      <p class="section-text">
-        Для тех, кто ценит качество, современный подход к здоровью
-        и хочет добавить в день простой premium-ритуал восстановления.
-      </p>
+      </a>
 
-      <div class="cards">
-        <div class="card">
-          <span>01</span>
-          <h3>Для активных людей</h3>
-          <p>Когда день насыщенный, а организму нужна мягкая ежедневная поддержка.</p>
-        </div>
+    </div>
 
-        <div class="card">
-          <span>02</span>
-          <h3>Для спорта</h3>
-          <p>После тренировок, нагрузок и активного графика.</p>
-        </div>
-
-        <div class="card">
-          <span>03</span>
-          <h3>Для бизнеса и работы</h3>
-          <p>Когда важно сохранять концентрацию, энергию и спокойный ритм.</p>
-        </div>
-      </div>
-
-      <div class="ritual">
-        <h2>Ритуал восстановления</h2>
-        <p>
-          Один стакан. Несколько минут. Небольшой ежедневный ритуал заботы о себе.
-        </p>
-      </div>
-    </section>
-
-    <section>
-      <h2>Почему выбирают H2 Premium</h2>
-
-      <p class="section-text">
-        Минималистичный формат, premium-подача и продукт,
-        который легко встроить в повседневный образ жизни.
-      </p>
-
-      <div class="cards">
-        <div class="card">
-          <span>✦</span>
-          <h3>Premium Quality</h3>
-          <p>Современная подача и ощущение продукта высокого уровня.</p>
-        </div>
-
-        <div class="card">
-          <span>◎</span>
-          <h3>Minimal Formula</h3>
-          <p>Без сложных схем и лишнего шума — простой ежедневный формат.</p>
-        </div>
-
-        <div class="card">
-          <span>∞</span>
-          <h3>Everyday Balance</h3>
-          <p>Подходит для ежедневной поддержки в активном ритме жизни.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="final">
-      <div class="final-box">
-        <h2>Энергия начинается с восстановления</h2>
-
-        <p class="section-text">
-          Оставьте заявку, и мы расскажем подробнее о H2 Premium,
-          наличии и условиях покупки.
-        </p>
-
-        <div class="buttons">
-          <a class="btn btn-primary" href="https://t.me/auto_importKZ" target="_blank">Написать в Telegram</a>
-          <a class="btn btn-secondary" href="https://instagram.com/" target="_blank">Instagram</a>
-        </div>
-      </div>
-    </section>
-
-    <footer>
-      © 2026 H2 Premium. Не является лекарственным средством.
-    </footer>
   </div>
+
+  <div class="video-card">
+
+    <video
+    class="hero-video"
+    autoplay
+    muted
+    loop
+    playsinline>
+
+      <source
+      src="h2-video.mp4"
+      type="video/mp4">
+
+    </video>
+
+    <div class="video-overlay"></div>
+
+    <div class="video-badge">
+      H2 Premium Capsules
+    </div>
+
+  </div>
+
+</header>
+
+<section id="about">
+
+  <h2>
+    Ежедневная нутрицевтическая поддержка
+  </h2>
+
+  <p class="section-text">
+
+    H2 Premium —
+    биологически активная добавка
+    в удобных капсулах для тех,
+    кто хочет поддерживать организм
+    в активном ритме жизни.
+
+  </p>
+
+  <div class="cards">
+
+    <div class="card">
+
+      <span>Mg</span>
+
+      <h3>Магний</h3>
+
+      <p>
+        Поддержка нервной системы,
+        восстановления и внутреннего баланса.
+      </p>
+
+    </div>
+
+    <div class="card">
+
+      <span>H₂</span>
+
+      <h3>Водородная поддержка</h3>
+
+      <p>
+        Современный wellness-подход
+        для ежедневной заботы о себе.
+      </p>
+
+    </div>
+
+    <div class="card">
+
+      <span>⚡</span>
+
+      <h3>Энергия</h3>
+
+      <p>
+        Для людей,
+        которые много работают,
+        двигаются и хотят
+        чувствовать больше ресурса.
+      </p>
+
+    </div>
+
+    <div class="card">
+
+      <span>◌</span>
+
+      <h3>Баланс</h3>
+
+      <p>
+        Удобный формат капсул,
+        который легко встроить
+        в ежедневный режим.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section>
+
+  <h2>
+    Для кого создан H2 Premium
+  </h2>
+
+  <p class="section-text">
+
+    Для тех,
+    кто ценит качество,
+    активный образ жизни
+    и современный подход
+    к ежедневной поддержке организма.
+
+  </p>
+
+  <div class="cards">
+
+    <div class="card">
+
+      <span>01</span>
+
+      <h3>Активный ритм</h3>
+
+      <p>
+        Когда день насыщенный,
+        а организму нужна
+        мягкая ежедневная поддержка.
+      </p>
+
+    </div>
+
+    <div class="card">
+
+      <span>02</span>
+
+      <h3>Спорт и нагрузки</h3>
+
+      <p>
+        Для восстановления
+        после тренировок,
+        дороги, работы
+        и активного графика.
+      </p>
+
+    </div>
+
+    <div class="card">
+
+      <span>03</span>
+
+      <h3>Работа и бизнес</h3>
+
+      <p>
+        Когда важно сохранять
+        концентрацию,
+        энергию
+        и спокойный внутренний ритм.
+      </p>
+
+    </div>
+
+  </div>
+
+  <div class="ritual">
+
+    <h2>
+      Ежедневный wellness-ритуал
+    </h2>
+
+    <p>
+      Капсула.
+      Стакан воды.
+      Несколько секунд
+      для заботы о себе.
+    </p>
+
+  </div>
+
+</section>
+
+<section>
+
+  <h2>
+    Почему выбирают H2 Premium
+  </h2>
+
+  <p class="section-text">
+
+    Минималистичный формат,
+    premium-подача
+    и продукт,
+    который легко встроить
+    в повседневный образ жизни.
+
+  </p>
+
+  <div class="cards">
+
+    <div class="card">
+
+      <span>✦</span>
+
+      <h3>Premium формат</h3>
+
+      <p>
+        Современная подача
+        и ощущение продукта
+        высокого уровня.
+      </p>
+
+    </div>
+
+    <div class="card">
+
+      <span>◎</span>
+
+      <h3>Удобные капсулы</h3>
+
+      <p>
+        Без сложных схем
+        и лишнего шума —
+        простой ежедневный формат.
+      </p>
+
+    </div>
+
+    <div class="card">
+
+      <span>∞</span>
+
+      <h3>Everyday Balance</h3>
+
+      <p>
+        Подходит
+        для ежедневной поддержки
+        в активном ритме жизни.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="final">
+
+  <div class="final-box">
+
+    <h2>
+      Энергия начинается
+      с восстановления
+    </h2>
+
+    <p class="section-text">
+
+      Оставьте заявку,
+      и мы расскажем подробнее
+      о H2 Premium,
+      наличии
+      и условиях покупки.
+
+    </p>
+
+    <div class="buttons">
+
+      <a
+      class="btn btn-primary"
+      href="https://t.me/auto_importKZ"
+      target="_blank">
+
+      Написать в Telegram
+
+      </a>
+
+      <a
+      class="btn btn-secondary"
+      href="https://instagram.com/"
+      target="_blank">
+
+      Instagram
+
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+<footer>
+
+  © 2026 H2 Premium.
+  БАД.
+  Не является лекарственным средством.
+
+</footer>
+
+</div>
 
 </body>
 </html>

@@ -966,82 +966,71 @@ gtag('config', 'G-510GTL8F0Q');
   </div>
 
 </section>
-<section id="shop">
+<section id="shop" class="clean-shop">
 
-  <div class="offer-head">
-    <div class="label">Special offer</div>
-    <h2>Платите за 6 — получаете 11</h2>
-    <p>
-      При покупке 6 упаковок: скидка 10% + 5 упаковок в подарок.
-    </p>
-  </div>
+  <h2>Оформить заказ</h2>
 
-  <div class="premium-shop">
+  <p class="section-text">
+    1 упаковка H2 Premium — 34 800 ₸.
+    Акция действует только при покупке 6 упаковок.
+  </p>
 
-    <div class="deal-card">
-      <div class="deal-badge">Максимальная выгода</div>
-      <h3>6 упаковок</h3>
-      <div class="deal-main">11 упаковок</div>
-      <p>Вы получаете 6 упаковок + 5 упаковок в подарок</p>
+  <div class="clean-order-card">
 
-      <div class="deal-list">
-        <div><span>Скидка</span><strong>10%</strong></div>
-        <div><span>Экономия</span><strong>20 880 ₸</strong></div>
-        <div><span>К оплате</span><strong>187 920 ₸</strong></div>
+    <div class="order-top">
+      <div>
+        <span class="shop-label">H2 Premium</span>
+        <h3>БАД в капсулах</h3>
+      </div>
+      <div class="order-price">34 800 ₸</div>
+    </div>
+
+    <div class="quantity-box">
+      <button onclick="changeQty(-1)">−</button>
+      <span id="qty">1</span>
+      <button onclick="changeQty(1)">+</button>
+    </div>
+
+    <div id="promoBox" class="promo-box" style="display:none;">
+      <strong>Акция активирована</strong>
+      <p>Покупаете 6 упаковок, получаете 11. Скидка 10% + 5 упаковок в подарок.</p>
+    </div>
+
+    <div class="summary clean-summary">
+      <div>
+        <span>Покупаете</span>
+        <strong><span id="buyQty">1</span> уп.</strong>
+      </div>
+
+      <div>
+        <span>Сумма</span>
+        <strong><span id="subtotal">34 800</span> ₸</strong>
+      </div>
+
+      <div id="discountRow" style="display:none;">
+        <span>Скидка</span>
+        <strong>-<span id="discount">0</span> ₸</strong>
+      </div>
+
+      <div id="giftRow" style="display:none;">
+        <span>Подарок</span>
+        <strong>+5 уп.</strong>
+      </div>
+
+      <div>
+        <span>Получите</span>
+        <strong><span id="totalQty">1</span> уп.</strong>
       </div>
     </div>
 
-    <div class="calc-card premium-calc">
-
-      <div class="shop-label">H2 Premium</div>
-
-      <h3>Оформить заказ</h3>
-
-      <p class="unit-price">1 упаковка — 34 800 ₸</p>
-
-      <div class="quantity-box">
-        <button onclick="changeQty(-1)">−</button>
-        <span id="qty">1</span>
-        <button onclick="changeQty(1)">+</button>
-      </div>
-
-      <div class="summary">
-        <div>
-          <span>Покупаете:</span>
-          <strong><span id="buyQty">1</span> уп.</strong>
-        </div>
-
-        <div>
-          <span>Без скидки:</span>
-          <strong><span id="subtotal">34 800</span> ₸</strong>
-        </div>
-
-        <div id="discountRow" style="display:none;">
-          <span>Скидка 10%:</span>
-          <strong>-<span id="discount">0</span> ₸</strong>
-        </div>
-
-        <div id="giftRow" style="display:none;">
-          <span>Подарок:</span>
-          <strong>+5 уп. 🎁</strong>
-        </div>
-
-        <div>
-          <span>Получите:</span>
-          <strong><span id="totalQty">1</span> уп.</strong>
-        </div>
-      </div>
-
-      <div class="total">
-        <span>Итого к оплате</span>
-        <strong><span id="totalPrice">34 800</span> ₸</strong>
-      </div>
-
-      <a id="orderBtn" class="btn btn-primary" href="#" target="_blank">
-        Оформить заказ
-      </a>
-
+    <div class="total clean-total">
+      <span>К оплате</span>
+      <strong><span id="totalPrice">34 800</span> ₸</strong>
     </div>
+
+    <a id="orderBtn" class="btn btn-primary" href="#" target="_blank">
+      Оформить заказ
+    </a>
 
   </div>
 
@@ -1122,7 +1111,7 @@ href="tel:+77009904003">
 
     document.getElementById('discountRow').style.display = hasBonus ? 'flex' : 'none';
     document.getElementById('giftRow').style.display = hasBonus ? 'flex' : 'none';
-
+document.getElementById('promoBox').style.display = hasBonus ? 'block' : 'none';
     const message =
       `Здравствуйте! Хочу оформить заказ H2 Premium.%0A` +
       `Количество к покупке: ${qty} уп.%0A` +

@@ -1,678 +1,420 @@
+```html
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-510GTL8F0Q"></script>
-
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-
-gtag('config', 'G-510GTL8F0Q');
-</script>
-
-<meta charset="UTF-8" />
-
-<html lang="ru">
-<head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>H2 Premium</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>H2 Premium — БАД в капсулах</title>
+
+  <!-- Google tag -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-510GTL8F0Q"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-510GTL8F0Q');
+  </script>
 
   <style>
-
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
-<script>
-  const PRICE = 34800;
-  let qty = 1;
-
-  function formatNumber(num) {
-    return num.toLocaleString('ru-RU').replace(/\s/g, ' ');
-  }
-
-  function updateCalc() {
-    const subtotal = qty * PRICE;
-    const hasBonus = qty === 6;
-    const discount = hasBonus ? Math.round(subtotal * 0.10) : 0;
-    const total = subtotal - discount;
-    const gift = hasBonus ? 5 : 0;
-    const totalQty = qty + gift;
-
-    document.getElementById('qty').textContent = qty;
-    document.getElementById('buyQty').textContent = qty;
-    document.getElementById('subtotal').textContent = formatNumber(subtotal);
-    document.getElementById('discount').textContent = formatNumber(discount);
-    document.getElementById('totalPrice').textContent = formatNumber(total);
-    document.getElementById('totalQty').textContent = totalQty;
-
-    document.getElementById('discountRow').style.display = hasBonus ? 'flex' : 'none';
-    document.getElementById('giftRow').style.display = hasBonus ? 'flex' : 'none';
-
-    const message =
-      `Здравствуйте! Хочу заказать H2 Premium.%0A` +
-      `Количество к покупке: ${qty} уп.%0A` +
-      `Сумма без скидки: ${formatNumber(subtotal)} ₸%0A` +
-      (hasBonus ? `Скидка 10%: ${formatNumber(discount)} ₸%0AПодарок: +5 уп.%0A` : '') +
-      `Итого получите: ${totalQty} уп.%0A` +
-      `К оплате: ${formatNumber(total)} ₸`;
-
-    document.getElementById('orderBtn').href = `https://t.me/lbatimaa?text=${message}`;
-  }
-
-  function changeQty(value) {
-    qty += value;
-
-    if (qty < 1) qty = 1;
-    if (qty > 99) qty = 99;
-
-    updateCalc();
-  }
-
-  updateCalc();
-</script>
-    body{
-      font-family:Arial,sans-serif;
-      background:#030712;
-      color:white;
-      overflow-x:hidden;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    .page{
-      min-height:100vh;
+    html {
+      scroll-behavior: smooth;
+    }
 
+    body {
+      font-family: Arial, sans-serif;
+      background: #030712;
+      color: #ffffff;
+      overflow-x: hidden;
+    }
+
+    .page {
+      min-height: 100vh;
       background:
-      radial-gradient(circle at 75% 20%,
-      rgba(56,189,248,0.25),
-      transparent 35%),
-
-      radial-gradient(circle at 20% 80%,
-      rgba(37,99,235,0.18),
-      transparent 35%),
-
-      #030712;
+        radial-gradient(circle at 75% 15%, rgba(56,189,248,0.28), transparent 34%),
+        radial-gradient(circle at 20% 75%, rgba(37,99,235,0.18), transparent 36%),
+        #030712;
     }
 
-    header{
-      min-height:100vh;
-
-      display:grid;
-      grid-template-columns:1.1fr 0.9fr;
-
-      align-items:center;
-      gap:50px;
-
-      max-width:1200px;
-      margin:auto;
-
-      padding:50px 20px;
+    header {
+      max-width: 1180px;
+      min-height: 100vh;
+      margin: auto;
+      padding: 60px 20px;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      align-items: center;
+      gap: 46px;
     }
 
-    .label{
-      display:inline-block;
-
-      padding:10px 18px;
-
-      border-radius:999px;
-
-      background:rgba(255,255,255,0.08);
-
-      border:1px solid rgba(255,255,255,0.15);
-
-      color:#bae6fd;
-
-      font-size:13px;
-
-      letter-spacing:2px;
-
-      text-transform:uppercase;
-
-      margin-bottom:25px;
+    .label,
+    .shop-label {
+      display: inline-block;
+      padding: 10px 17px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.16);
+      color: #bae6fd;
+      font-size: 13px;
+      letter-spacing: 1.7px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
     }
 
-    h1{
-      font-size:clamp(56px,9vw,110px);
-
-      line-height:0.95;
-
-      letter-spacing:-4px;
-
-      margin-bottom:25px;
+    h1 {
+      font-size: clamp(58px, 9vw, 110px);
+      line-height: 0.95;
+      letter-spacing: -4px;
+      margin-bottom: 25px;
     }
 
-    .hero-text{
-      font-size:clamp(20px,3vw,29px);
-
-      color:#dbeafe;
-
-      line-height:1.4;
-
-      margin-bottom:35px;
-
-      max-width:700px;
+    h2 {
+      font-size: clamp(34px, 6vw, 62px);
+      line-height: 1.05;
+      letter-spacing: -2px;
+      text-align: center;
+      margin-bottom: 24px;
     }
 
-    .buttons{
-      display:flex;
-
-      gap:15px;
-
-      flex-wrap:wrap;
+    .hero-text,
+    .section-text {
+      color: #cbd5e1;
+      line-height: 1.6;
     }
 
-    .btn{
-      display:inline-block;
-
-      padding:16px 30px;
-
-      border-radius:999px;
-
-      text-decoration:none;
-
-      font-weight:700;
-
-      transition:0.3s ease;
+    .hero-text {
+      font-size: clamp(20px, 3vw, 29px);
+      max-width: 700px;
+      margin-bottom: 34px;
     }
 
-    .btn-primary{
+    .section-text {
+      max-width: 780px;
+      margin: 0 auto 48px;
+      text-align: center;
+      font-size: 20px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 16px 30px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: 0.25s ease;
+      text-align: center;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #38bdf8, #2563eb);
+      color: white;
+      box-shadow: 0 18px 45px rgba(37,99,235,0.35);
+    }
+
+    .btn-secondary {
+      color: white;
+      border: 1px solid rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.07);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .video-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 38px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 38px 110px rgba(0,0,0,0.45);
+      min-height: 520px;
+    }
+
+    .hero-video {
+      width: 100%;
+      height: 520px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .video-overlay {
+      position: absolute;
+      inset: 0;
       background:
-      linear-gradient(135deg,#38bdf8,#2563eb);
-
-      color:white;
-
-      box-shadow:
-      0 20px 50px rgba(37,99,235,0.35);
+        radial-gradient(circle at center, transparent 35%, rgba(3,7,18,0.44) 100%),
+        linear-gradient(to top, rgba(3,7,18,0.75), transparent 55%);
     }
 
-    .btn-secondary{
-      color:white;
-
-      border:1px solid rgba(255,255,255,0.22);
-
-      background:rgba(255,255,255,0.07);
+    .video-badge {
+      position: absolute;
+      left: 24px;
+      bottom: 24px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.18);
+      color: #e0f2fe;
+      font-size: 13px;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
     }
 
-    .btn:hover{
-      transform:translateY(-3px);
+    section {
+      max-width: 1180px;
+      margin: auto;
+      padding: 86px 20px;
     }
 
-    .video-card{
-
-      position:relative;
-
-      overflow:hidden;
-
-      border-radius:40px;
-
-      background:rgba(255,255,255,0.06);
-
-      border:1px solid rgba(255,255,255,0.12);
-
-      backdrop-filter:blur(20px);
-
-      box-shadow:
-      0 40px 120px rgba(0,0,0,0.45);
-
-      min-height:520px;
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 22px;
     }
 
-    .hero-video{
-      width:100%;
-
-      height:520px;
-
-      object-fit:cover;
-
-      display:block;
+    .card {
+      min-height: 210px;
+      padding: 30px;
+      border-radius: 28px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      transition: 0.25s ease;
     }
 
-    .video-overlay{
+    .card:hover {
+      transform: translateY(-7px);
+      background: rgba(255,255,255,0.1);
+    }
 
-      position:absolute;
+    .card span {
+      display: block;
+      font-size: 34px;
+      color: #7dd3fc;
+      margin-bottom: 20px;
+    }
 
-      inset:0;
+    .card h3 {
+      color: #e0f2fe;
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
 
+    .card p {
+      color: #cbd5e1;
+      font-size: 17px;
+      line-height: 1.6;
+    }
+
+    .ritual {
+      margin-top: 42px;
+      padding: 62px 28px;
+      border-radius: 34px;
+      background: linear-gradient(135deg, rgba(56,189,248,0.16), rgba(15,23,42,0.96));
+      border: 1px solid rgba(255,255,255,0.14);
+      text-align: center;
+    }
+
+    .ritual p {
+      font-size: clamp(23px, 4vw, 38px);
+      line-height: 1.25;
+      max-width: 850px;
+      margin: auto;
+    }
+
+    .clean-shop {
+      max-width: 960px;
+    }
+
+    .clean-order-card {
+      max-width: 660px;
+      margin: auto;
+      padding: 34px;
+      border-radius: 34px;
       background:
-
-      radial-gradient(
-      circle at center,
-      transparent 35%,
-      rgba(3,7,18,0.45) 100%
-      ),
-
-      linear-gradient(
-      to top,
-      rgba(3,7,18,0.75),
-      transparent 55%
-      );
+        radial-gradient(circle at top, rgba(56,189,248,0.18), transparent 42%),
+        rgba(255,255,255,0.075);
+      border: 1px solid rgba(255,255,255,0.14);
+      box-shadow: 0 35px 110px rgba(0,0,0,0.34);
     }
 
-    .video-badge{
-
-      position:absolute;
-
-      left:24px;
-
-      bottom:24px;
-
-      padding:12px 18px;
-
-      border-radius:999px;
-
-      background:rgba(255,255,255,0.12);
-
-      border:1px solid rgba(255,255,255,0.18);
-
-      backdrop-filter:blur(16px);
-
-      color:#e0f2fe;
-
-      font-size:13px;
-
-      letter-spacing:1.5px;
-
-      text-transform:uppercase;
+    .order-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: flex-start;
+      margin-bottom: 30px;
     }
 
-    section{
-      max-width:1180px;
-
-      margin:auto;
-
-      padding:90px 20px;
+    .order-top h3 {
+      font-size: 30px;
+      color: #e0f2fe;
     }
 
-    h2{
-      font-size:clamp(36px,6vw,64px);
-
-      text-align:center;
-
-      line-height:1;
-
-      letter-spacing:-2px;
-
-      margin-bottom:24px;
+    .order-price {
+      font-size: 24px;
+      font-weight: 800;
+      color: #ffffff;
+      white-space: nowrap;
     }
 
-    .section-text{
-      max-width:780px;
-
-      margin:0 auto 50px;
-
-      text-align:center;
-
-      color:#cbd5e1;
-
-      font-size:20px;
-
-      line-height:1.6;
+    .quantity-box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 22px;
+      margin: 28px 0;
     }
 
-    .cards{
-      display:grid;
-
-      grid-template-columns:
-      repeat(auto-fit,minmax(240px,1fr));
-
-      gap:22px;
+    .quantity-box button {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      border: none;
+      background: linear-gradient(135deg, #38bdf8, #2563eb);
+      color: white;
+      font-size: 32px;
+      cursor: pointer;
+      box-shadow: 0 16px 38px rgba(37,99,235,0.34);
     }
 
-    .card{
-      padding:30px;
-
-      min-height:220px;
-
-      border-radius:28px;
-
-      background:rgba(255,255,255,0.07);
-
-      border:1px solid rgba(255,255,255,0.12);
-
-      backdrop-filter:blur(18px);
-
-      transition:0.3s ease;
+    .quantity-box span {
+      min-width: 70px;
+      text-align: center;
+      font-size: 44px;
+      font-weight: 800;
     }
 
-    .card:hover{
-      transform:translateY(-8px);
-
-      background:rgba(255,255,255,0.11);
+    .promo-box {
+      margin: 24px 0;
+      padding: 20px;
+      border-radius: 24px;
+      background: rgba(56,189,248,0.13);
+      border: 1px solid rgba(56,189,248,0.28);
     }
 
-    .card span{
-      display:block;
-
-      font-size:34px;
-
-      margin-bottom:24px;
-
-      color:#7dd3fc;
+    .promo-box strong {
+      display: block;
+      margin-bottom: 8px;
+      color: #e0f2fe;
+      font-size: 20px;
     }
 
-    .card h3{
-      font-size:24px;
-
-      margin-bottom:14px;
-
-      color:#e0f2fe;
+    .promo-box p {
+      color: #cbd5e1;
+      line-height: 1.5;
     }
 
-    .card p{
-      color:#cbd5e1;
-
-      font-size:17px;
-
-      line-height:1.6;
+    .summary {
+      display: grid;
+      gap: 10px;
+      margin: 24px 0;
     }
 
-    .ritual{
-      margin-top:45px;
+    .summary div {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 13px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      color: #cbd5e1;
+    }
 
-      padding:70px 30px;
+    .summary strong {
+      color: white;
+      text-align: right;
+    }
 
-      border-radius:36px;
+    .total {
+      margin: 28px 0;
+      padding: 24px;
+      border-radius: 24px;
+      background: rgba(56,189,248,0.13);
+      border: 1px solid rgba(56,189,248,0.26);
+      text-align: center;
+    }
 
+    .total span {
+      display: block;
+      color: #bae6fd;
+      margin-bottom: 8px;
+    }
+
+    .total strong {
+      font-size: 40px;
+    }
+
+    .clean-order-card .btn {
+      width: 100%;
+    }
+
+    .final {
+      text-align: center;
+      padding-bottom: 110px;
+    }
+
+    .final-box {
+      padding: 64px 25px;
+      border-radius: 38px;
       background:
-      linear-gradient(
-      135deg,
-      rgba(56,189,248,0.18),
-      rgba(15,23,42,0.96)
-      );
-
-      border:1px solid rgba(255,255,255,0.14);
-
-      text-align:center;
+        radial-gradient(circle at top, rgba(56,189,248,0.3), transparent 45%),
+        rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.14);
     }
 
-    .ritual p{
-      font-size:clamp(24px,4vw,40px);
-
-      max-width:850px;
-
-      margin:auto;
-
-      line-height:1.25;
+    footer {
+      padding: 30px 20px;
+      text-align: center;
+      color: #64748b;
+      font-size: 14px;
     }
 
-    .final{
-      text-align:center;
-
-      padding-bottom:120px;
-    }
-
-    .final-box{
-      padding:70px 25px;
-
-      border-radius:40px;
-
-      background:
-
-      radial-gradient(
-      circle at top,
-      rgba(56,189,248,0.35),
-      transparent 45%
-      ),
-
-      rgba(255,255,255,0.07);
-
-      border:1px solid rgba(255,255,255,0.14);
-
-      backdrop-filter:blur(20px);
-    }
-
-    footer{
-      padding:30px 20px;
-
-      text-align:center;
-
-      color:#64748b;
-
-      font-size:14px;
-    }
-.calculator {
- .offer-head {
-  text-align: center;
-  max-width: 850px;
-  margin: 0 auto 50px;
-}
-
-.offer-head p {
-  color: #cbd5e1;
-  font-size: 21px;
-  line-height: 1.6;
-}
-
-.premium-shop {
-  display: grid;
-  grid-template-columns: 0.95fr 1.05fr;
-  gap: 28px;
-  align-items: stretch;
-}
-
-.deal-card,
-.premium-calc {
-  border-radius: 38px;
-  background:
-    radial-gradient(circle at top, rgba(56,189,248,0.28), transparent 45%),
-    rgba(255,255,255,0.075);
-  border: 1px solid rgba(255,255,255,0.15);
-  backdrop-filter: blur(22px);
-  box-shadow: 0 40px 130px rgba(0,0,0,0.38);
-}
-
-.deal-card {
-  padding: 42px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.deal-badge {
-  display: inline-block;
-  width: fit-content;
-  padding: 10px 16px;
-  border-radius: 999px;
-  background: rgba(56,189,248,0.16);
-  border: 1px solid rgba(56,189,248,0.32);
-  color: #bae6fd;
-  font-size: 13px;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  margin-bottom: 28px;
-}
-
-.deal-card h3 {
-  font-size: 42px;
-  margin-bottom: 8px;
-  color: #e0f2fe;
-}
-
-.deal-main {
-  font-size: clamp(48px, 7vw, 82px);
-  font-weight: 800;
-  line-height: 0.95;
-  letter-spacing: -3px;
-  margin-bottom: 22px;
-  background: linear-gradient(135deg, #ffffff, #7dd3fc);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.deal-card p {
-  color: #cbd5e1;
-  font-size: 19px;
-  line-height: 1.5;
-  margin-bottom: 30px;
-}
-
-.deal-list {
-  display: grid;
-  gap: 14px;
-}
-
-.deal-list div {
-  display: flex;
-  justify-content: space-between;
-  gap: 16px;
-  padding: 16px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.12);
-}
-
-.deal-list span {
-  color: #94a3b8;
-}
-
-.deal-list strong {
-  color: #fff;
-  font-size: 20px;
-}
-
-.premium-calc {
-  padding: 40px;
-  text-align: center;
-}
-
-.premium-calc h3 {
-  font-size: 36px;
-  margin-bottom: 12px;
-  color: #e0f2fe;
-}
-
-.unit-price {
-  color: #cbd5e1;
-  font-size: 18px;
-  margin-bottom: 30px;
-}
-
-.quantity-box {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 24px;
-  margin-bottom: 34px;
-}
-
-.quantity-box button {
-  width: 58px;
-  height: 58px;
-  border-radius: 50%;
-  border: none;
-  background: linear-gradient(135deg, #38bdf8, #2563eb);
-  color: white;
-  font-size: 32px;
-  cursor: pointer;
-  box-shadow: 0 18px 45px rgba(37,99,235,0.35);
-}
-
-.quantity-box span {
-  font-size: 44px;
-  font-weight: 800;
-  min-width: 70px;
-}
-
-.summary {
-  display: grid;
-  gap: 12px;
-  margin-bottom: 28px;
-  text-align: left;
-}
-
-.summary div {
-  display: flex;
-  justify-content: space-between;
-  gap: 15px;
-  padding: 14px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-  color: #cbd5e1;
-}
-
-.summary strong {
-  color: #fff;
-  text-align: right;
-}
-
-.total {
-  margin: 30px 0;
-  padding: 26px;
-  border-radius: 26px;
-  background:
-    linear-gradient(135deg, rgba(56,189,248,0.22), rgba(37,99,235,0.14));
-  border: 1px solid rgba(56,189,248,0.3);
-}
-
-.total span {
-  display: block;
-  color: #bae6fd;
-  margin-bottom: 8px;
-}
-
-.total strong {
-  font-size: 42px;
-}
-
-.total {
-  margin: 30px 0;
-  padding: 24px;
-  border-radius: 24px;
-  background: rgba(56,189,248,0.13);
-  border: 1px solid rgba(56,189,248,0.25);
-}
-
-.total span {
-  display: block;
-  color: #bae6fd;
-  margin-bottom: 8px;
-}
-
-.total strong {
-  font-size: 38px;
-}
-    @media(max-width:850px){
-.premium-shop {
-  grid-template-columns: 1fr;
-}
-
-.deal-card,
-.premium-calc {
-  padding: 30px;
-}
-
-.deal-card h3 {
-  font-size: 34px;
-}
-
-.total strong {
-  font-size: 34px;
-}
-      header{
-        grid-template-columns:1fr;
-
-        text-align:center;
-
-        padding-top:70px;
+    @media(max-width: 850px) {
+      header {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding-top: 70px;
       }
 
-      .buttons{
-        justify-content:center;
+      .buttons {
+        justify-content: center;
       }
 
-      h1{
-        letter-spacing:-2px;
+      h1 {
+        letter-spacing: -2px;
       }
 
-      .video-card{
-        max-width:430px;
-
-        margin:auto;
+      .video-card {
+        max-width: 430px;
+        min-height: 440px;
+        margin: auto;
       }
 
+      .hero-video {
+        height: 440px;
+      }
+
+      .order-top {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+      }
+
+      .total strong {
+        font-size: 34px;
+      }
     }
-
   </style>
 </head>
 
@@ -681,293 +423,130 @@ gtag('config', 'G-510GTL8F0Q');
 <div class="page">
 
 <header>
-
   <div>
-
-    <div class="label">
-      Premium nutraceutical support
-    </div>
+    <div class="label">Premium nutraceutical support</div>
 
     <h1>H2 Premium</h1>
 
     <p class="hero-text">
-      БАД в капсулах с магнием
-      и водородной поддержкой
-      для энергии, восстановления
-      и ежедневного баланса.
+      БАД в капсулах с магнием и водородной поддержкой для энергии,
+      восстановления и ежедневного баланса.
     </p>
 
     <div class="buttons">
-
-      <a
-      class="btn btn-primary"
-      href="https://t.me/lbatimaa"
-      target="_blank">
-
-      Получить консультацию
-
-      </a>
-
-      <a
-      class="btn btn-secondary"
-      href="#about">
-
-      Узнать подробнее
-
-      </a>
-
+      <a class="btn btn-primary" href="https://t.me/lbatimaa" target="_blank">Получить консультацию</a>
+      <a class="btn btn-secondary" href="#shop">Оформить заказ</a>
     </div>
-
   </div>
 
   <div class="video-card">
-
-    <video
-    class="hero-video"
-    autoplay
-    muted
-    loop
-    playsinline>
-
-      <source
-      src="h2-video.mp4"
-      type="video/mp4">
-
+    <video class="hero-video" autoplay muted loop playsinline>
+      <source src="h2-video.mp4" type="video/mp4">
     </video>
-
     <div class="video-overlay"></div>
-
-    <div class="video-badge">
-      H2 Premium Capsules
-    </div>
-
+    <div class="video-badge">H2 Premium Capsules</div>
   </div>
-
 </header>
 
 <section id="about">
-
-  <h2>
-    Ежедневная нутрицевтическая поддержка
-  </h2>
+  <h2>Ежедневная нутрицевтическая поддержка</h2>
 
   <p class="section-text">
-
-    H2 Premium —
-    биологически активная добавка
-    в удобных капсулах для тех,
-    кто хочет поддерживать организм
-    в активном ритме жизни.
-
+    H2 Premium — биологически активная добавка в удобных капсулах
+    для тех, кто хочет поддерживать организм в активном ритме жизни.
   </p>
 
   <div class="cards">
-
     <div class="card">
-
       <span>Mg</span>
-
       <h3>Магний</h3>
-
-      <p>
-        Поддержка нервной системы,
-        восстановления и внутреннего баланса.
-      </p>
-
+      <p>Поддержка нервной системы, восстановления и внутреннего баланса.</p>
     </div>
 
     <div class="card">
-
       <span>H₂</span>
-
       <h3>Водородная поддержка</h3>
-
-      <p>
-        Современный wellness-подход
-        для ежедневной заботы о себе.
-      </p>
-
+      <p>Современный wellness-подход для ежедневной заботы о себе.</p>
     </div>
 
     <div class="card">
-
       <span>⚡</span>
-
       <h3>Энергия</h3>
-
-      <p>
-        Для людей,
-        которые много работают,
-        двигаются и хотят
-        чувствовать больше ресурса.
-      </p>
-
+      <p>Для людей, которые много работают, двигаются и хотят чувствовать больше ресурса.</p>
     </div>
 
     <div class="card">
-
       <span>◌</span>
-
       <h3>Баланс</h3>
-
-      <p>
-        Удобный формат капсул,
-        который легко встроить
-        в ежедневный режим.
-      </p>
-
+      <p>Удобный формат капсул, который легко встроить в ежедневный режим.</p>
     </div>
-
   </div>
-
 </section>
 
 <section>
-
-  <h2>
-    Для кого создан H2 Premium
-  </h2>
+  <h2>Для кого создан H2 Premium</h2>
 
   <p class="section-text">
-
-    Для тех,
-    кто ценит качество,
-    активный образ жизни
-    и современный подход
-    к ежедневной поддержке организма.
-
+    Для тех, кто ценит качество, активный образ жизни
+    и современный подход к ежедневной поддержке организма.
   </p>
 
   <div class="cards">
-
     <div class="card">
-
       <span>01</span>
-
       <h3>Активный ритм</h3>
-
-      <p>
-        Когда день насыщенный,
-        а организму нужна
-        мягкая ежедневная поддержка.
-      </p>
-
+      <p>Когда день насыщенный, а организму нужна мягкая ежедневная поддержка.</p>
     </div>
 
     <div class="card">
-
       <span>02</span>
-
       <h3>Спорт и нагрузки</h3>
-
-      <p>
-        Для восстановления
-        после тренировок,
-        дороги, работы
-        и активного графика.
-      </p>
-
+      <p>Для восстановления после тренировок, дороги, работы и активного графика.</p>
     </div>
 
     <div class="card">
-
       <span>03</span>
-
       <h3>Работа и бизнес</h3>
-
-      <p>
-        Когда важно сохранять
-        концентрацию,
-        энергию
-        и спокойный внутренний ритм.
-      </p>
-
+      <p>Когда важно сохранять концентрацию, энергию и спокойный внутренний ритм.</p>
     </div>
-
   </div>
 
   <div class="ritual">
-
-    <h2>
-      Ежедневный wellness-ритуал
-    </h2>
-
-    <p>
-      Капсула.
-      Стакан воды.
-      Несколько секунд
-      для заботы о себе.
-    </p>
-
+    <h2>Ежедневный wellness-ритуал</h2>
+    <p>Капсула. Стакан воды. Несколько секунд для заботы о себе.</p>
   </div>
-
 </section>
 
 <section>
-
-  <h2>
-    Почему выбирают H2 Premium
-  </h2>
+  <h2>Почему выбирают H2 Premium</h2>
 
   <p class="section-text">
-
-    Минималистичный формат,
-    premium-подача
-    и продукт,
-    который легко встроить
-    в повседневный образ жизни.
-
+    Минималистичный формат, premium-подача и продукт,
+    который легко встроить в повседневный образ жизни.
   </p>
 
   <div class="cards">
-
     <div class="card">
-
       <span>✦</span>
-
       <h3>Premium формат</h3>
-
-      <p>
-        Современная подача
-        и ощущение продукта
-        высокого уровня.
-      </p>
-
+      <p>Современная подача и ощущение продукта высокого уровня.</p>
     </div>
 
     <div class="card">
-
       <span>◎</span>
-
       <h3>Удобные капсулы</h3>
-
-      <p>
-        Без сложных схем
-        и лишнего шума —
-        простой ежедневный формат.
-      </p>
-
+      <p>Без сложных схем и лишнего шума — простой ежедневный формат.</p>
     </div>
 
     <div class="card">
-
       <span>∞</span>
-
       <h3>Everyday Balance</h3>
-
-      <p>
-        Подходит
-        для ежедневной поддержки
-        в активном ритме жизни.
-      </p>
-
+      <p>Подходит для ежедневной поддержки в активном ритме жизни.</p>
     </div>
-
   </div>
-
 </section>
-<section id="shop" class="clean-shop">
 
+<section id="shop" class="clean-shop">
   <h2>Оформить заказ</h2>
 
   <p class="section-text">
@@ -976,7 +555,6 @@ gtag('config', 'G-510GTL8F0Q');
   </p>
 
   <div class="clean-order-card">
-
     <div class="order-top">
       <div>
         <span class="shop-label">H2 Premium</span>
@@ -996,7 +574,7 @@ gtag('config', 'G-510GTL8F0Q');
       <p>Покупаете 6 упаковок, получаете 11. Скидка 10% + 5 упаковок в подарок.</p>
     </div>
 
-    <div class="summary clean-summary">
+    <div class="summary">
       <div>
         <span>Покупаете</span>
         <strong><span id="buyQty">1</span> уп.</strong>
@@ -1023,69 +601,39 @@ gtag('config', 'G-510GTL8F0Q');
       </div>
     </div>
 
-    <div class="total clean-total">
+    <div class="total">
       <span>К оплате</span>
       <strong><span id="totalPrice">34 800</span> ₸</strong>
     </div>
 
-    <a id="orderBtn" class="btn btn-primary" href="#" target="_blank">
-      Оформить заказ
-    </a>
-
+    <a id="orderBtn" class="btn btn-primary" href="#" target="_blank">Оформить заказ</a>
   </div>
-
 </section>
+
 <section class="final">
-
   <div class="final-box">
-
-    <h2>
-      Энергия начинается
-      с восстановления
-    </h2>
+    <h2>Энергия начинается с восстановления</h2>
 
     <p class="section-text">
-
-   Оставьте заявку, напишите в Telegram или позвоните:
-<br>
-<strong>+7 700 990 40 03</strong>
-
+      Оставьте заявку, напишите в Telegram или позвоните:
+      <br>
+      <strong>+7 700 990 40 03</strong>
     </p>
 
     <div class="buttons">
-
-      <a
-      class="btn btn-primary"
-      href="https://t.me/lbatimaa"
-      target="_blank"> <a
-class="btn btn-secondary"
-href="tel:+77009904003">
-
-Позвонить
-
-</a>
-
-      Написать в Telegram
-
-      </a>
-
-    <a class="btn btn-secondary" href="https://instagram.com/magni_h_2" target="_blank"> Instagram </a>
-
+      <a class="btn btn-primary" href="https://t.me/lbatimaa" target="_blank">Написать в Telegram</a>
+      <a class="btn btn-secondary" href="tel:+77009904003">Позвонить</a>
+      <a class="btn btn-secondary" href="https://instagram.com/magni_h_2" target="_blank">Instagram</a>
     </div>
-
   </div>
-
 </section>
 
 <footer>
-
-  © 2026 H2 Premium.
-  БАД.
-  Не является лекарственным средством.
-
+  © 2026 H2 Premium. БАД. Не является лекарственным средством.
 </footer>
 
 </div>
+
 <script>
   const PRICE = 34800;
   let qty = 1;
@@ -1111,26 +659,32 @@ href="tel:+77009904003">
 
     document.getElementById('discountRow').style.display = hasBonus ? 'flex' : 'none';
     document.getElementById('giftRow').style.display = hasBonus ? 'flex' : 'none';
-document.getElementById('promoBox').style.display = hasBonus ? 'block' : 'none';
+    document.getElementById('promoBox').style.display = hasBonus ? 'block' : 'none';
+
     const message =
       `Здравствуйте! Хочу оформить заказ H2 Premium.%0A` +
       `Количество к покупке: ${qty} уп.%0A` +
-      `Сумма без скидки: ${formatNumber(subtotal)} ₸%0A` +
+      `Сумма: ${formatNumber(subtotal)} ₸%0A` +
       (hasBonus ? `Скидка 10%: ${formatNumber(discount)} ₸%0AПодарок: +5 уп.%0A` : '') +
       `Итого получите: ${totalQty} уп.%0A` +
-      `К оплате: ${formatNumber(total)} ₸`;
+      `К оплате: ${formatNumber(total)} ₸%0A` +
+      `Мой телефон: `;
 
     document.getElementById('orderBtn').href = `https://t.me/lbatimaa?text=${message}`;
   }
 
   function changeQty(value) {
     qty += value;
+
     if (qty < 1) qty = 1;
     if (qty > 99) qty = 99;
+
     updateCalc();
   }
 
   updateCalc();
 </script>
+
 </body>
 </html>
+```

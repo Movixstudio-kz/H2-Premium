@@ -28,7 +28,54 @@ gtag('config', 'G-510GTL8F0Q');
       padding:0;
       box-sizing:border-box;
     }
+<script>
+  const PRICE = 34800;
+  let qty = 1;
 
+  function formatNumber(num) {
+    return num.toLocaleString('ru-RU').replace(/\s/g, ' ');
+  }
+
+  function updateCalc() {
+    const subtotal = qty * PRICE;
+    const hasBonus = qty >= 6;
+    const discount = hasBonus ? Math.round(subtotal * 0.10) : 0;
+    const total = subtotal - discount;
+    const gift = hasBonus ? 5 : 0;
+    const totalQty = qty + gift;
+
+    document.getElementById('qty').textContent = qty;
+    document.getElementById('buyQty').textContent = qty;
+    document.getElementById('subtotal').textContent = formatNumber(subtotal);
+    document.getElementById('discount').textContent = formatNumber(discount);
+    document.getElementById('totalPrice').textContent = formatNumber(total);
+    document.getElementById('totalQty').textContent = totalQty;
+
+    document.getElementById('discountRow').style.display = hasBonus ? 'flex' : 'none';
+    document.getElementById('giftRow').style.display = hasBonus ? 'flex' : 'none';
+
+    const message =
+      `Здравствуйте! Хочу заказать H2 Premium.%0A` +
+      `Количество к покупке: ${qty} уп.%0A` +
+      `Сумма без скидки: ${formatNumber(subtotal)} ₸%0A` +
+      (hasBonus ? `Скидка 10%: ${formatNumber(discount)} ₸%0AПодарок: +5 уп.%0A` : '') +
+      `Итого получите: ${totalQty} уп.%0A` +
+      `К оплате: ${formatNumber(total)} ₸`;
+
+    document.getElementById('orderBtn').href = `https://t.me/lbatimaa?text=${message}`;
+  }
+
+  function changeQty(value) {
+    qty += value;
+
+    if (qty < 1) qty = 1;
+    if (qty > 99) qty = 99;
+
+    updateCalc();
+  }
+
+  updateCalc();
+</script>
     body{
       font-family:Arial,sans-serif;
       background:#030712;
@@ -387,7 +434,96 @@ gtag('config', 'G-510GTL8F0Q');
 
       font-size:14px;
     }
+.calculator {
+  max-width: 620px;
+  margin: auto;
+}
 
+.calc-card {
+  padding: 38px;
+  border-radius: 36px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.14);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 40px 120px rgba(0,0,0,0.35);
+  text-align: center;
+}
+
+.calc-card h3 {
+  font-size: 32px;
+  margin-bottom: 12px;
+  color: #e0f2fe;
+}
+
+.unit-price {
+  color: #cbd5e1;
+  font-size: 18px;
+  margin-bottom: 28px;
+}
+
+.quantity-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 22px;
+  margin-bottom: 34px;
+}
+
+.quantity-box button {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  border: none;
+  background: linear-gradient(135deg, #38bdf8, #2563eb);
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.quantity-box span {
+  font-size: 38px;
+  font-weight: 700;
+  min-width: 60px;
+}
+
+.summary {
+  display: grid;
+  gap: 14px;
+  margin-bottom: 28px;
+  text-align: left;
+}
+
+.summary div {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  color: #cbd5e1;
+}
+
+.summary strong {
+  color: #fff;
+  text-align: right;
+}
+
+.total {
+  margin: 30px 0;
+  padding: 24px;
+  border-radius: 24px;
+  background: rgba(56,189,248,0.13);
+  border: 1px solid rgba(56,189,248,0.25);
+}
+
+.total span {
+  display: block;
+  color: #bae6fd;
+  margin-bottom: 8px;
+}
+
+.total strong {
+  font-size: 38px;
+}
     @media(max-width:850px){
 
       header{

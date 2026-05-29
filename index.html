@@ -707,7 +707,73 @@ gtag('config', 'G-510GTL8F0Q');
   </div>
 
 </section>
+<section id="shop">
 
+  <h2>Выберите количество</h2>
+
+  <p class="section-text">
+    Рассчитайте стоимость заказа. При покупке 6 упаковок действует скидка 10% и подарок +5 упаковок.
+  </p>
+
+  <div class="calculator">
+
+    <div class="calc-card">
+
+      <div class="shop-label">H2 Premium</div>
+
+      <h3>БАД в капсулах</h3>
+
+      <p class="unit-price">1 упаковка — 34 800 ₸</p>
+
+      <div class="quantity-box">
+        <button onclick="changeQty(-1)">−</button>
+        <span id="qty">1</span>
+        <button onclick="changeQty(1)">+</button>
+      </div>
+
+      <div class="summary">
+
+        <div>
+          <span>Количество к покупке:</span>
+          <strong><span id="buyQty">1</span> уп.</strong>
+        </div>
+
+        <div>
+          <span>Сумма без скидки:</span>
+          <strong><span id="subtotal">34 800</span> ₸</strong>
+        </div>
+
+        <div id="discountRow" style="display:none;">
+          <span>Скидка 10%:</span>
+          <strong>-<span id="discount">0</span> ₸</strong>
+        </div>
+
+        <div id="giftRow" style="display:none;">
+          <span>Подарок:</span>
+          <strong>+5 уп. 🎁</strong>
+        </div>
+
+        <div>
+          <span>Итого получите:</span>
+          <strong><span id="totalQty">1</span> уп.</strong>
+        </div>
+
+      </div>
+
+      <div class="total">
+        <span>К оплате</span>
+        <strong><span id="totalPrice">34 800</span> ₸</strong>
+      </div>
+
+      <a id="orderBtn" class="btn btn-primary" href="#" target="_blank">
+        Заказать в Telegram
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
 <section class="final">
 
   <div class="final-box">

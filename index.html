@@ -38,7 +38,7 @@ gtag('config', 'G-510GTL8F0Q');
 
   function updateCalc() {
     const subtotal = qty * PRICE;
-    const hasBonus = qty >= 6;
+    const hasBonus = qty === 6;
     const discount = hasBonus ? Math.round(subtotal * 0.10) : 0;
     const total = subtotal - discount;
     const gift = hasBonus ? 5 : 0;

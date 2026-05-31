@@ -704,7 +704,11 @@ line-height: 1.1;
       <strong><span id="totalPrice">34 800</span> ₸</strong>
     </div>
 
-    <a id="orderBtn" class="btn btn-primary" href="#" target="_blank">Оформить заказ</a>
+    <button
+class="btn btn-primary"
+onclick="sendOrder()">
+Оформить заказ
+</button>
   </div>
 </section>
 
@@ -782,7 +786,43 @@ line-height: 1.1;
 
   updateCalc();
 </script>
+<script>
 
+const WEBHOOK_URL =
+"https://script.google.com/macros/s/AKfycbymOiHRKC9itzRVhueS_CN0ehGGRVj-2qcOTPklXyRf63WP-HH8KmCG5XtNN1U0gDvCQg/exec";
+
+function sendOrder() {
+
+  const name = prompt("Ваше имя:");
+  if (!name) return;
+
+  const phone = prompt("Телефон:");
+  if (!phone) return;
+
+  const city = prompt("Город:");
+  if (!city) return;
+
+  const payload = {
+    name: name,
+    phone: phone,
+    city: city,
+    quantity: document.getElementById("buyQty").textContent,
+    total: document.getElementById("totalPrice").textContent,
+    totalQty: document.getElementById("totalQty").textContent,
+    comment: ""
+  };
+
+  fetch(WEBHOOK_URL, {
+    method: "POST",
+    mode: "no-cors",
+    body: JSON.stringify(payload)
+  });
+
+  alert("Спасибо! Заявка отправлена.");
+
+}
+
+</script>
 </body>
 </html>
 

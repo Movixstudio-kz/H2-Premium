@@ -554,6 +554,37 @@ line-height: 1.1;
   font-weight: 700;
   cursor: pointer;
 } 
+    .reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 22px;
+}
+
+.review-card {
+  padding: 30px;
+  border-radius: 28px;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 30px 90px rgba(0,0,0,0.25);
+}
+
+.review-stars {
+  color: #facc15;
+  font-size: 22px;
+  margin-bottom: 18px;
+}
+
+.review-card p {
+  color: #e2e8f0;
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+
+.review-card span {
+  color: #94a3b8;
+  font-size: 15px;
+}
   </style>
 </head>
 
@@ -712,7 +743,42 @@ line-height: 1.1;
     </div>
   </div>
 </section>
+<section id="reviews">
+  <h2>Отзывы покупателей</h2>
 
+  <p class="section-text">
+    Покупатели H2 Premium чаще всего отмечают удобный формат капсул,
+    ощущение поддержки энергии, восстановления и общего баланса.
+  </p>
+
+  <div class="reviews-grid">
+
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p>
+        “После курса почувствовала больше энергии и легче стала переносить активный день.”
+      </p>
+      <span>Покупатель H2 Premium</span>
+    </div>
+
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p>
+        “Удобный формат: капсула, стакан воды — и всё. Легко встроить в ежедневный режим.”
+      </p>
+      <span>Отзыв покупателя</span>
+    </div>
+
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p>
+        “Брала для поддержки после нагрузок. Понравилась консультация и быстрая обратная связь.”
+      </p>
+      <span>Клиент Dandelion</span>
+    </div>
+
+  </div>
+</section>
 <section id="shop" class="clean-shop">
   <h2>Оформить заказ</h2>
 

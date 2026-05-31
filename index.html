@@ -585,6 +585,72 @@ line-height: 1.1;
   color: #94a3b8;
   font-size: 15px;
 }
+    .order-form {
+  display: grid;
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.order-form input,
+.order-form textarea {
+  width: 100%;
+  padding: 16px 18px;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.08);
+  color: white;
+  font-size: 16px;
+  outline: none;
+}
+
+.order-form textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+.order-form input::placeholder,
+.order-form textarea::placeholder {
+  color: #94a3b8;
+}
+
+.order-form input:focus,
+.order-form textarea:focus {
+  border-color: rgba(56,189,248,0.55);
+  box-shadow: 0 0 0 3px rgba(56,189,248,0.12);
+}
+
+.floating-whatsapp {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 9998;
+  padding: 15px 22px;
+  border-radius: 999px;
+  background: #22c55e;
+  color: white;
+  text-decoration: none;
+  font-weight: 800;
+  box-shadow: 0 18px 45px rgba(34,197,94,0.35);
+}
+
+.countdown {
+  margin-top: 26px;
+  padding: 18px;
+  border-radius: 22px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+.countdown span {
+  display: block;
+  color: #bae6fd;
+  margin-bottom: 8px;
+}
+
+.countdown strong {
+  font-size: 28px;
+  color: white;
+}
   </style>
 </head>
 
@@ -839,11 +905,16 @@ line-height: 1.1;
       <strong><span id="totalPrice">34 800</span> ₸</strong>
     </div>
 
-    <button
-class="btn btn-primary"
-onclick="sendOrder()">
-Оформить заказ
-</button>
+  <div class="order-form">
+  <input id="clientName" type="text" placeholder="Ваше имя">
+  <input id="clientPhone" type="tel" inputmode="numeric" placeholder="Телефон" oninput="this.value=this.value.replace(/[^0-9+]/g,'')">
+  <input id="clientCity" type="text" placeholder="Город">
+  <textarea id="clientComment" placeholder="Комментарий"></textarea>
+
+  <button class="btn btn-primary" onclick="sendOrder()">
+    Оформить заказ
+  </button>
+</div>
   </div>
 </section>
 
@@ -927,15 +998,20 @@ const WEBHOOK_URL =
 "https://script.google.com/macros/s/AKfycbymOiHRKC9itzRVhueS_CN0ehGGRVj-2qcOTPklXyRf63WP-HH8KmCG5XtNN1U0gDvCQg/exec";
 
 function sendOrder() {
+  const name = document.getElementById("clientName").value.trim();
+  const phone = document.getElementById("clientPhone").value.trim();
+  const city = document.getElementById("clientCity").value.trim();
+  const comment = document.getElementById("clientComment").value.trim();
 
-  const name = prompt("Ваше имя:");
-  if (!name) return;
+  if (!name || !phone || !city) {
+    alert("Пожалуйста, заполните имя, телефон и город.");
+    return;
+  }
 
-  const phone = prompt("Телефон:");
-  if (!phone) return;
-
-  const city = prompt("Город:");
-  if (!city) return;
+  if (phone.length < 10) {
+    alert("Введите корректный номер телефона.");
+    return;
+  }
 
   const payload = {
     name: name,
@@ -944,8 +1020,22 @@ function sendOrder() {
     quantity: document.getElementById("buyQty").textContent,
     total: document.getElementById("totalPrice").textContent,
     totalQty: document.getElementById("totalQty").textContent,
-    comment: ""
+    comment: comment || "—"
   };
+
+  fetch(WEBHOOK_URL, {
+    method: "POST",
+    mode: "no-cors",
+    body: JSON.stringify(payload)
+  });
+
+  document.getElementById("successModal").style.display = "flex";
+
+  document.getElementById("clientName").value = "";
+  document.getElementById("clientPhone").value = "";
+  document.getElementById("clientCity").value = "";
+  document.getElementById("clientComment").value = "";
+}
 
   fetch(WEBHOOK_URL, {
     method: "POST",
@@ -958,6 +1048,28 @@ document.getElementById("successModal").style.display = "flex";
   function closeSuccessModal() {
   document.getElementById("successModal").style.display = "none";
 }
+  function updateCountdown() {
+  const endDate = new Date("2026-06-01T23:59:59+05:00").getTime();
+  const now = new Date().getTime();
+  const distance = endDate - now;
+
+  const timer = document.getElementById("countdownTimer");
+  if (!timer) return;
+
+  if (distance <= 0) {
+    timer.textContent = "Акция завершена";
+    return;
+  }
+
+  const hours = Math.floor(distance / (1000 * 60 * 60));
+  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  timer.textContent = `${hours} ч ${minutes} мин ${seconds} сек`;
+}
+
+setInterval(updateCountdown, 1000);
+updateCountdown();
 </script>
   <div id="successModal" class="success-modal">
   <div class="success-box">

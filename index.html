@@ -887,10 +887,8 @@ function sendOrder() {
     body: JSON.stringify(payload)
   });
 
-  alert("Спасибо! Заявка отправлена.");
-
-}
 document.getElementById("successModal").style.display = "flex";
+}
   function closeSuccessModal() {
   document.getElementById("successModal").style.display = "none";
 }

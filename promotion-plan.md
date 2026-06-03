@@ -4,6 +4,14 @@
 
 - Основной сайт: `https://movixstudio-kz.github.io/H2-Premium/`
 
+## Рекламные ссылки с UTM
+
+- Instagram bio: `https://movixstudio-kz.github.io/H2-Premium/?utm_source=instagram&utm_medium=bio&utm_campaign=h2_launch`
+- Instagram stories: `https://movixstudio-kz.github.io/H2-Premium/?utm_source=instagram&utm_medium=stories&utm_campaign=h2_launch`
+- Instagram reels: `https://movixstudio-kz.github.io/H2-Premium/?utm_source=instagram&utm_medium=reels&utm_campaign=h2_launch`
+- TikTok bio: `https://movixstudio-kz.github.io/H2-Premium/?utm_source=tiktok&utm_medium=bio&utm_campaign=h2_launch`
+- TikTok video: `https://movixstudio-kz.github.io/H2-Premium/?utm_source=tiktok&utm_medium=video&utm_campaign=h2_launch`
+
 ## Цели аналитики
 
 - `order_start` — переход к заказу или клик по кнопке оформления.
@@ -16,6 +24,8 @@
 - `instagram_click` — переход в Instagram.
 
 Для Yandex Metrica нужно вставить ID счетчика в `YM_COUNTER_ID` в `index.html`.
+
+Форма заявки передает UTM-метки, referrer и страницу входа в Google Apps Script вместе с заказом.
 
 ## Контент на 14 дней
 
@@ -73,3 +83,12 @@ CTA: "Рассчитайте заказ на сайте."
 - Реальные отзывы с именем или городом.
 - Условия доставки и оплаты.
 - Короткое видео с человеком, который отвечает на заявки.
+
+## Чеклист запуска без домена
+
+1. Вставить ID Yandex Metrica в `YM_COUNTER_ID`.
+2. Отправить тестовую заявку и проверить, что она пришла в Google Apps Script/таблицу.
+3. Проверить кнопки Telegram и WhatsApp с телефона.
+4. Поставить ссылку `utm_source=instagram&utm_medium=bio&utm_campaign=h2_launch` в Instagram bio.
+5. Запустить первые 3 ролика: распаковка, акция 6 + 5, ответ "это БАД или лекарство?".
+6. Через 2-3 дня посмотреть, откуда пришли заявки: Instagram bio, reels, stories или TikTok.

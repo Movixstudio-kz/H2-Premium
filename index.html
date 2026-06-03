@@ -1209,11 +1209,26 @@ line-height: 1.1;
 const WEBHOOK_URL =
 "https://script.google.com/macros/s/AKfycbymOiHRKC9itzRVhueS_CN0ehGGRVj-2qcOTPklXyRf63WP-HH8KmCG5XtNN1U0gDvCQg/exec";
 
+function getTrafficData() {
+  const params = new URLSearchParams(window.location.search);
+
+  return {
+    utmSource: params.get("utm_source") || "",
+    utmMedium: params.get("utm_medium") || "",
+    utmCampaign: params.get("utm_campaign") || "",
+    utmContent: params.get("utm_content") || "",
+    utmTerm: params.get("utm_term") || "",
+    referrer: document.referrer || "",
+    landingPage: window.location.href
+  };
+}
+
 function sendOrder() {
   const name = document.getElementById("clientName").value.trim();
   const phone = document.getElementById("clientPhone").value.trim();
   const city = document.getElementById("clientCity").value.trim();
   const comment = document.getElementById("clientComment").value.trim();
+  const traffic = getTrafficData();
 
   if (!name || !phone || !city) {
     trackGoal("order_validation_error", {reason: "empty_required_fields"});
@@ -1234,7 +1249,8 @@ function sendOrder() {
     quantity: document.getElementById("buyQty").textContent,
     total: document.getElementById("totalPrice").textContent,
     totalQty: document.getElementById("totalQty").textContent,
-    comment: comment || "—"
+    comment: comment || "—",
+    ...traffic
   };
 
   fetch(WEBHOOK_URL, {
@@ -1246,7 +1262,10 @@ function sendOrder() {
   trackGoal("order_submit", {
     quantity: payload.quantity,
     total: payload.total,
-    city: payload.city
+    city: payload.city,
+    utm_source: traffic.utmSource,
+    utm_medium: traffic.utmMedium,
+    utm_campaign: traffic.utmCampaign
   });
 
   document.getElementById("successModal").style.display = "flex";

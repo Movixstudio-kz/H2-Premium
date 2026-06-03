@@ -1,14 +1,11 @@
 # H2 Premium: план продвижения
 
-## Ссылки для рекламы
+## Ссылка для рекламы
 
-- Энергия и рабочий ритм: `https://movixstudio-kz.github.io/H2-Premium/?offer=energy`
-- Спорт и восстановление: `https://movixstudio-kz.github.io/H2-Premium/?offer=sport`
-- Курс и акция 6 + 5: `https://movixstudio-kz.github.io/H2-Premium/?offer=course`
+- Основной сайт: `https://movixstudio-kz.github.io/H2-Premium/`
 
 ## Цели аналитики
 
-- `landing_variant_view` — просмотр версии посадочной страницы.
 - `order_start` — переход к заказу или клик по кнопке оформления.
 - `order_submit` — отправка заявки.
 - `order_validation_error` — ошибка заполнения формы.
@@ -53,7 +50,7 @@ CTA: "Напишите в Direct или оставьте заявку на са�
 
 Текст: "H2 Premium создан для активного ритма: тренировки, работа, дорога, насыщенный день. Подберем курс и расскажем детали по применению."
 
-CTA: "Перейдите по ссылке `?offer=sport` и оставьте заявку."
+CTA: "Перейдите по ссылке на сайт и оставьте заявку."
 
 ### Акция
 

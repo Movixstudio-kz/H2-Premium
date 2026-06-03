@@ -50,7 +50,7 @@ content="БАД в капсулах с магнием и водородной п
     gtag('js', new Date());
     gtag('config', 'G-510GTL8F0Q');
 
-    const YM_COUNTER_ID = "";
+    const YM_COUNTER_ID = "109608874";
 
     function trackGoal(goal, params = {}) {
       if (typeof gtag === "function") {
@@ -70,10 +70,14 @@ content="БАД в капсулах с магнием и водородной п
       })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
       ym(Number(YM_COUNTER_ID), "init", {
+        ssr: true,
         clickmap: true,
         trackLinks: true,
         accurateTrackBounce: true,
-        webvisor: true
+        webvisor: true,
+        ecommerce: "dataLayer",
+        referrer: document.referrer,
+        url: location.href
       });
     }
 
@@ -772,6 +776,7 @@ line-height: 1.1;
 </head>
 
 <body>
+<noscript><div><img src="https://mc.yandex.ru/watch/109608874" style="position:absolute; left:-9999px;" alt=""></div></noscript>
 
 <div class="page">
 

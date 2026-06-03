@@ -4,10 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>H2 Premium — БАД в капсулах</title>
+  <title>H2 Premium — БАД с магнием и водородной поддержкой в Казахстане</title>
+<meta name="description" content="H2 Premium — БАД в капсулах с магнием и водородной поддержкой. Закажите консультацию и доставку по Казахстану: цена 34 800 ₸ за упаковку." />
+<link rel="canonical" href="https://movixstudio-kz.github.io/H2-Premium/" />
 <meta property="og:title" content="H2 Premium — Магний + Водород" />
 <meta property="og:description"
-content="🔥 Только 1 июня. Купите 3 упаковки H2 Premium и получите 4-ю в подарок." />
+content="БАД в капсулах с магнием и водородной поддержкой. Консультация, заказ и доставка по Казахстану." />
 <meta property="og:image" content="https://movixstudio-kz.github.io/H2-Premium/preview.jpg" /> 
 <meta property="og:image:width" content="640" />
 <meta property="og:image:height" content="640" />
@@ -19,6 +21,27 @@ content="🔥 Только 1 июня. Купите 3 упаковки H2 Premiu
 <meta name="twitter:title" content="H2 Premium — Магний + Водород" />
 <meta name="twitter:description" content="Поддержка энергии, восстановления и ежедневного баланса." />
 <meta name="twitter:image" content="https://movixstudio-kz.github.io/H2-Premium/preview.jpg" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "H2 Premium",
+  "description": "БАД в капсулах с магнием и водородной поддержкой для ежедневного wellness-ритуала.",
+  "image": "https://movixstudio-kz.github.io/H2-Premium/preview.jpg",
+  "brand": {
+    "@type": "Brand",
+    "name": "H2 Premium"
+  },
+  "offers": {
+    "@type": "Offer",
+    "url": "https://movixstudio-kz.github.io/H2-Premium/#shop",
+    "priceCurrency": "KZT",
+    "price": "34800",
+    "availability": "https://schema.org/InStock"
+  },
+  "category": "БАД"
+}
+</script>
   <!-- Google tag -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-510GTL8F0Q"></script>
   <script>
@@ -26,6 +49,33 @@ content="🔥 Только 1 июня. Купите 3 упаковки H2 Premiu
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-510GTL8F0Q');
+
+    const YM_COUNTER_ID = "";
+
+    function trackGoal(goal, params = {}) {
+      if (typeof gtag === "function") {
+        gtag("event", goal, params);
+      }
+
+      if (YM_COUNTER_ID && window.ym) {
+        ym(Number(YM_COUNTER_ID), "reachGoal", goal, params);
+      }
+    }
+
+    if (YM_COUNTER_ID) {
+      (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a);
+      })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+      ym(Number(YM_COUNTER_ID), "init", {
+        clickmap: true,
+        trackLinks: true,
+        accurateTrackBounce: true,
+        webvisor: true
+      });
+    }
   </script>
 
   <style>
@@ -651,6 +701,55 @@ line-height: 1.1;
   font-size: 28px;
   color: white;
 }
+
+.trust-grid,
+.faq-list {
+  display: grid;
+  gap: 18px;
+}
+
+.trust-grid {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.trust-card,
+.faq-item {
+  padding: 26px;
+  border-radius: 28px;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+.trust-card h3,
+.faq-item h3 {
+  color: #e0f2fe;
+  margin-bottom: 12px;
+  font-size: 22px;
+}
+
+.trust-card p,
+.trust-card li,
+.faq-item p {
+  color: #cbd5e1;
+  line-height: 1.6;
+  font-size: 17px;
+}
+
+.trust-card ul {
+  padding-left: 20px;
+  display: grid;
+  gap: 8px;
+}
+
+.note-box {
+  margin-top: 24px;
+  padding: 22px;
+  border-radius: 24px;
+  background: rgba(250,204,21,0.11);
+  border: 1px solid rgba(250,204,21,0.25);
+  color: #fde68a;
+  line-height: 1.6;
+}
   </style>
 </head>
 
@@ -660,18 +759,18 @@ line-height: 1.1;
 
 <header>
   <div>
-    <div class="label">Premium nutraceutical support</div>
+    <div class="label" id="heroLabel">Premium nutraceutical support</div>
 
     <h1>H2 Premium</h1>
 
-    <p class="hero-text">
+    <p class="hero-text" id="heroText">
       БАД в капсулах с магнием и водородной поддержкой для энергии,
       восстановления и ежедневного баланса.
     </p>
 
     <div class="buttons">
-      <a class="btn btn-primary" href="https://t.me/lbatimaa" target="_blank">Получить консультацию</a>
-      <a class="btn btn-secondary" href="#shop">Оформить заказ</a>
+      <a class="btn btn-primary" id="heroPrimaryCta" href="https://t.me/lbatimaa" target="_blank" onclick="trackGoal('telegram_click', {placement: 'hero'})">Получить консультацию</a>
+      <a class="btn btn-secondary" href="#shop" onclick="trackGoal('order_start', {placement: 'hero'})">Оформить заказ</a>
     </div>
   </div>
 
@@ -688,20 +787,25 @@ line-height: 1.1;
   <div class="promo-inner">
 
     <div class="promo-badge">
-      🔥 АКЦИЯ ТОЛЬКО 1 ИЮНЯ 2026
+      🔥 ЛЕТНЕЕ ПРЕДЛОЖЕНИЕ
     </div>
 
     <h2>
-      Купите 3 упаковки H2 Premium — получите 4-ю в подарок
+      Закажите курс H2 Premium: 6 упаковок + 5 в подарок
     </h2>
 
     <p>
-      Специальное предложение действует только один день — до 23:59 по времени Астаны.
+      Специальное предложение: скидка 10% на 6 упаковок и ещё 5 упаковок в подарок.
     </p>
 
     <div class="promo-price">
       Формат акции
-      <span>3 + 1</span>
+      <span>6 + 5</span>
+    </div>
+
+    <div class="countdown">
+      <span>До конца предложения</span>
+      <strong id="countdownTimer">Загружаем...</strong>
     </div>
 
     <a href="#shop" class="btn btn-primary">
@@ -809,6 +913,71 @@ line-height: 1.1;
     </div>
   </div>
 </section>
+
+<section id="trust">
+  <h2>Состав, доверие и безопасность</h2>
+
+  <p class="section-text">
+    Для продукта в категории БАД особенно важны прозрачность, аккуратные формулировки и понятный путь заказа.
+  </p>
+
+  <div class="trust-grid">
+    <div class="trust-card">
+      <h3>Состав</h3>
+      <ul>
+        <li>Магний в удобном формате капсул.</li>
+        <li>Водородная wellness-поддержка для ежедневного режима.</li>
+        <li>Формат курса подбирается через консультацию.</li>
+      </ul>
+    </div>
+
+    <div class="trust-card">
+      <h3>Сертификаты</h3>
+      <p>
+        Добавьте фото сертификата, декларации или документов поставки. Этот блок создан для подтверждения качества перед запуском рекламы.
+      </p>
+    </div>
+
+    <div class="trust-card">
+      <h3>Как принимать</h3>
+      <p>
+        Рекомендации по применению лучше уточнять на консультации и сверять с инструкцией на упаковке.
+      </p>
+    </div>
+
+    <div class="trust-card">
+      <h3>Важно</h3>
+      <p>
+        H2 Premium является БАДом, не является лекарственным средством и не заменяет консультацию врача.
+      </p>
+    </div>
+  </div>
+
+  <div class="note-box">
+    При наличии хронических заболеваний, беременности, грудного вскармливания или регулярного приема лекарств перед применением стоит проконсультироваться со специалистом.
+  </div>
+</section>
+
+<section id="delivery">
+  <h2>Доставка, оплата и консультация</h2>
+
+  <div class="trust-grid">
+    <div class="trust-card">
+      <h3>Доставка</h3>
+      <p>Доставка по Казахстану обсуждается с менеджером после заявки. Укажите город, чтобы мы рассчитали удобный вариант.</p>
+    </div>
+
+    <div class="trust-card">
+      <h3>Оплата</h3>
+      <p>Менеджер подтвердит состав заказа, количество упаковок, сумму и доступные способы оплаты перед отправкой.</p>
+    </div>
+
+    <div class="trust-card">
+      <h3>Консультация</h3>
+      <p>Можно написать в Telegram, WhatsApp или оставить заявку на сайте. Ответим по курсу, акции и доставке.</p>
+    </div>
+  </div>
+</section>
 <section id="reviews">
   <h2>Отзывы покупателей</h2>
 
@@ -843,6 +1012,32 @@ line-height: 1.1;
       <span>Клиент Dandelion</span>
     </div>
 
+  </div>
+</section>
+
+<section id="faq">
+  <h2>Частые вопросы</h2>
+
+  <div class="faq-list">
+    <div class="faq-item">
+      <h3>Это лекарство?</h3>
+      <p>Нет. H2 Premium — БАД, не является лекарственным средством.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Можно ли заказать в другой город?</h3>
+      <p>Да, оставьте город в форме заказа, менеджер уточнит доступный способ доставки.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Как работает акция 6 + 5?</h3>
+      <p>При выборе 6 упаковок калькулятор применяет скидку 10% и добавляет 5 упаковок в подарок.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Как быстро свяжется менеджер?</h3>
+      <p>После заявки менеджер свяжется с вами по указанному телефону, чтобы подтвердить заказ и детали доставки.</p>
+    </div>
   </div>
 </section>
 <section id="shop" class="clean-shop">
@@ -911,7 +1106,7 @@ line-height: 1.1;
   <input id="clientCity" type="text" placeholder="Город">
   <textarea id="clientComment" placeholder="Комментарий"></textarea>
 
-  <button class="btn btn-primary" onclick="sendOrder()">
+  <button class="btn btn-primary" onclick="trackGoal('order_start', {placement: 'form_button'}); sendOrder()">
     Оформить заказ
   </button>
 </div>
@@ -929,9 +1124,9 @@ line-height: 1.1;
     </p>
 
     <div class="buttons">
-      <a class="btn btn-primary" href="https://t.me/lbatimaa" target="_blank">Написать в Telegram</a>
-      <a class="btn btn-secondary" href="tel:+77088862688">Позвонить</a>
-      <a class="btn btn-secondary" href="https://instagram.com/magni_h_2" target="_blank">Instagram</a>
+      <a class="btn btn-primary" href="https://t.me/lbatimaa" target="_blank" onclick="trackGoal('telegram_click', {placement: 'final'})">Написать в Telegram</a>
+      <a class="btn btn-secondary" href="tel:+77088862688" onclick="trackGoal('phone_click', {placement: 'final'})">Позвонить</a>
+      <a class="btn btn-secondary" href="https://instagram.com/magni_h_2" target="_blank" onclick="trackGoal('instagram_click', {placement: 'final'})">Instagram</a>
     </div>
   </div>
 </section>
@@ -978,7 +1173,10 @@ line-height: 1.1;
       `К оплате: ${formatNumber(total)} ₸%0A` +
       `Мой телефон: `;
 
-    document.getElementById('orderBtn').href = `https://t.me/lbatimaa?text=${message}`;
+    const orderBtn = document.getElementById('orderBtn');
+    if (orderBtn) {
+      orderBtn.href = `https://t.me/lbatimaa?text=${message}`;
+    }
   }
 
   function changeQty(value) {
@@ -988,6 +1186,7 @@ line-height: 1.1;
     if (qty > 99) qty = 99;
 
     updateCalc();
+    trackGoal("quantity_change", {quantity: qty});
   }
 
   updateCalc();
@@ -1004,11 +1203,13 @@ function sendOrder() {
   const comment = document.getElementById("clientComment").value.trim();
 
   if (!name || !phone || !city) {
+    trackGoal("order_validation_error", {reason: "empty_required_fields"});
     alert("Пожалуйста, заполните имя, телефон и город.");
     return;
   }
 
   if (phone.length < 10) {
+    trackGoal("order_validation_error", {reason: "short_phone"});
     alert("Введите корректный номер телефона.");
     return;
   }
@@ -1029,6 +1230,12 @@ function sendOrder() {
     body: JSON.stringify(payload)
   });
 
+  trackGoal("order_submit", {
+    quantity: payload.quantity,
+    total: payload.total,
+    city: payload.city
+  });
+
   document.getElementById("successModal").style.display = "flex";
 
   document.getElementById("clientName").value = "";
@@ -1041,7 +1248,7 @@ function sendOrder() {
   document.getElementById("successModal").style.display = "none";
 }
   function updateCountdown() {
-  const endDate = new Date("2026-06-01T23:59:59+05:00").getTime();
+  const endDate = new Date("2026-06-15T23:59:59+05:00").getTime();
   const now = new Date().getTime();
   const distance = endDate - now;
 
@@ -1062,6 +1269,37 @@ function sendOrder() {
 
 setInterval(updateCountdown, 1000);
 updateCountdown();
+
+function applyLandingVariant() {
+  const offer = new URLSearchParams(window.location.search).get("offer") || "default";
+  const variants = {
+    energy: {
+      label: "Energy focus",
+      text: "H2 Premium для тех, кому важны энергия, рабочий ритм и ежедневная поддержка без сложных схем.",
+      cta: "Подобрать курс для энергии"
+    },
+    sport: {
+      label: "Recovery focus",
+      text: "H2 Premium для активного графика, спорта, нагрузок и восстановления после насыщенного дня.",
+      cta: "Подобрать курс для восстановления"
+    },
+    course: {
+      label: "Course offer",
+      text: "Выгодный курс H2 Premium: выберите 6 упаковок, получите скидку 10% и 5 упаковок в подарок.",
+      cta: "Рассчитать курс"
+    }
+  };
+
+  const variant = variants[offer];
+  if (!variant) return;
+
+  document.getElementById("heroLabel").textContent = variant.label;
+  document.getElementById("heroText").textContent = variant.text;
+  document.getElementById("heroPrimaryCta").textContent = variant.cta;
+  trackGoal("landing_variant_view", {offer});
+}
+
+applyLandingVariant();
 </script>
   <div id="successModal" class="success-modal">
   <div class="success-box">
@@ -1086,7 +1324,8 @@ updateCountdown();
   <a
   href="https://wa.me/77088862688"
   target="_blank"
-  class="floating-whatsapp">
+  class="floating-whatsapp"
+  onclick="trackGoal('whatsapp_click', {placement: 'floating'})">
   💬 WhatsApp
 </a>
 </body>

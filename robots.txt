@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://movixstudio-kz.github.io/auto-import-kz/sitemap.xml
+Sitemap: https://movixstudio-kz.github.io/H2-Premium/sitemap.xml
